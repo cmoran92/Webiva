@@ -25,6 +25,7 @@ namespace "cms" do
                                 
     # Make the initial domain
     domain = client.domains.create(:name => ENV['DOMAIN'], :primary => true)
+    domain.save
     
     print "Successfully Created Client, Domain and System User\n"
   end
