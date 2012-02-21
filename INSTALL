@@ -25,7 +25,7 @@ $ sudo apt-get install mysql-server mysql-client ruby1.8 ruby1.8-dev rdoc1.8 \
 Starling (the background-process-queue) currently needs to be installed 
 separately, it can be via a:
 
-$ sudo gem install starling image_size
+$ sudo gem install starling image_size daemons
 gem install rubygems-update -v='1.4.2'
 gem uninstall rubygems-update -v='1.5.3'
 update_rubygems
