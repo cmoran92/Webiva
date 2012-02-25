@@ -25,7 +25,7 @@ module ActiveRecord
       def has_primary_key?
         return @has_primary_key unless @has_primary_key.nil?
         @has_primary_key = (ActiveRecord::Base.connection.supports_primary_key? &&
-          ActiveRecord::Base.connection.primary_key(@reflection.options[:join_table]))
+          DomainModel.connection.primary_key(@reflection.options[:join_table]))
       end
 
       protected
