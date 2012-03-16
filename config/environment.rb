@@ -103,6 +103,7 @@ Rails::Initializer.run do |config|
   config.gem "fastercsv"
   config.gem "httparty"
   config.gem "resthome", '>= 7.1.0'
+  config.gem "image_size"
 
   if RAILS_ENV == 'test'
     config.gem 'factory_girl',:source => 'http://gemcutter.org'
