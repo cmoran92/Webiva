@@ -1,3 +1,5 @@
+class ActsAsTree
+end
 module ActiveRecord
   module Acts
     module Tree

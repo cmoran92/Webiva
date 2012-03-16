@@ -20,7 +20,17 @@ config.action_view.debug_rjs                         = true
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.action_mailer.delivery_method = :test
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.logger = Logger.new($stdout)
+config.action_mailer.logger.level = Logger::DEBUG
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'gmail.com',
+  :user_name            => 'bizreportstest@gmail.com',
+  :password             => 'bHpzk67cgQ',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  }
 
 require 'development_logger'
 config.logger = DevelopmentLogger.new(File.dirname(__FILE__) + "/../../log/#{RAILS_ENV}.log", 0, 0)

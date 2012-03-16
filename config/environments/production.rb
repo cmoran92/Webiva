@@ -1,22 +1,28 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
-# The production environment is meant for finished, "live" apps.
-# Code is not reloaded between requests
+# In the development environment your application's code is reloaded on
+# every request.  This slows down response time but is perfect for development
+# since you don't have to restart the webserver when you make code changes.
 config.cache_classes = true
 
-# Use a different logger for distributed setups
-# config.logger = SyslogLogger.new
+# Log error messages when you accidentally call methods on nil.
+config.whiny_nils = true
 
-# Full error reports are disabled and caching is turned on
+# Enable the breakpoint server that script/breakpointer connects to
+# config.breakpoint_server = true
+
+# Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
+#config.action_view.cache_template_extensions         = false
+config.action_view.debug_rjs                         = true
 
-# Enable serving of images, stylesheets, and javascripts from an asset server
-# config.action_controller.asset_host                  = "http://assets.example.com"
-
-# Disable delivery errors if you bad email addresses should just be ignored
-# config.action_mailer.raise_delivery_errors = false
+# Enable delivery errors 
+config.action_mailer.raise_delivery_errors = true
 
 config.action_mailer.delivery_method = :sendmail
-config.action_mailer.perform_deliveries = true
-config.action_mailer.default_charset = 'utf-8'
+config.action_mailer.logger = Logger.new($stdout)
+config.action_mailer.logger.level = Logger::DEBUG
+
+require 'development_logger'
+config.logger = DevelopmentLogger.new(File.dirname(__FILE__) + "/../../log/#{RAILS_ENV}.log", 0, 0)
